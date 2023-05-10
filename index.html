@@ -9,38 +9,40 @@
     <link href="assets\css\style.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Task Manager</h1>
-    </header>
-    <main>
-        <form>
-            <label for="task">Task</label><br>
-            <input type="text" id="task" name="task"><br>
-            <label for="description">Description</label><br>
-            <input type="text" id="description" name="description" placeholder="Description..."><br><br>
-            <label for="category">Category</label><br>
-            <select name="category" id="category">
-                <option value="errand">Errand</option>
-                <option value="chore">Chore</option>
-                <option value="kids">Kids</option>
-                <option value="work">Work</option>
-            </select>
-            <label for="assign">Assign To</label><br>
-            <input type="text" id="assign" name="assign" placeholder="Assign to...."><br>
-            <div>
-                <input type="radio" id="contactChoice1" name="contact" value="email" />
-                <label for="contactChoice1">Email</label>
-          
-                <input type="radio" id="contactChoice2" name="contact" value="phone" />
-                <label for="contactChoice2">Phone</label>
-          
-                <input type="radio" id="contactChoice3" name="contact" value="mail" />
-                <label for="contactChoice3">Mail</label>
-            </div>
-          </form>
-    </main>
+  <header class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="display-1 text-center">Task Manager</h1>
+      </div>
+    </div>
+  </header>
+  <section class="container text-center" id="form-elements">
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <form class="">
+                <label for="task" class="labels">Task:</label><br>
+                <input type="text" id="task" name="task" placeholder="Task.."><br>
+                <label for="description" class="labels">Description:</label><br>
+                <textarea type="text" id="description" name="description" rows='3' cols="25" placeholder="Enter description here.."></textarea>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container" id="task-cards">
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <div class="col"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <script src="assets\js\script.js"></script>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>
