@@ -1,0 +1,12 @@
+body {
+    background-image: linear-gradient(to bottom right, rgba(51, 153, 255, 0.7), rgba(224, 224, 224, 0.7));
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+h6 {
+    font-weight: normal;
+}

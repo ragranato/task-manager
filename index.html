@@ -12,21 +12,58 @@
   <header class="container">
     <div class="row">
       <div class="col-12">
-        <h1 class="display-1 text-center">Task Manager</h1>
+        <h1 class="display-1 text-center text-success">Task Manager</h1>
       </div>
     </div>
   </header>
-  <section class="container text-center" id="form-elements">
+  <section class="container" id="form-elements">
     <div class="row">
-      <div class="col">
-        <div class="row">
-          <div class="col">
-            <form class="">
+      <div class="col-12">
+        <div class="row ">
+          <div class="col-6 mx-auto">
+            <section>
+              <form class="form-group container" id="task-form">
                 <label for="task" class="labels">Task:</label><br>
-                <input type="text" id="task" name="task" placeholder="Task.."><br>
+                <input class="form-control" type="text" id="task" name="task" placeholder="Task.."><br>
                 <label for="description" class="labels">Description:</label><br>
-                <textarea type="text" id="description" name="description" rows='3' cols="25" placeholder="Enter description here.."></textarea>
-            </form>
+                <textarea class="form-control" type="text" id="description" name="description" rows='3' cols="25" placeholder="Enter description here.."></textarea><br>
+                <div class="row">
+                  <div class="col">
+                    <label for="category" class="labels">Category:</label><br>
+                    <select class="form-control" name="categories" id="category">
+                      <option value="choose" selected disabled hidden>Choose One >></option>
+                      <option value="errand">Errand</option>
+                      <option value="chore">Chore</option>
+                      <option value="work">Work</option>
+                      <option value="kids">Kids</option>
+                    </select>
+                  </div>
+                  <div class="col">
+                    <label for="assign" class="labels">Assign to:</label><br>
+                    <input class="form-control" type="text" id="assign" name="assign" placeholder="Assign to.."><br>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <h6>Importance:</h6>
+                      <input  type="radio" id="urgent" name="importance" value="urgent">
+                      <label for="urgent">URGENT</label><br>
+                      <input  type="radio" id="non-urgent" name="importance" value="non-urgent">
+                      <label for="non-urgent">Routine</label><br>                      
+                    </div>
+                    <div class="col">
+                      <label for="due" class="labels">Due By:</label><br>
+                      <input class="form-control" type="date" id="due" name="due">
+                    </div>                  
+                  </div>                  
+                </div>
+              </form><br><br>
+              <div class="row text-center">
+                <div class="col">
+                  <button class="btn btn-success btn-lg btn-block"type="submit" form="task-form" value="Add">Add Task</button>                   
+                </div>                    
+              </div>
+            </section>
+            
           </div>
         </div>
       </div>
