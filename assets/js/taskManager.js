@@ -15,23 +15,28 @@ const createTaskHtml = (object) => {
 };
 
 class TaskManager {
-  constructor(currentId = 0) {
-    this.tasks = [];
-    this.currentId = currentId;
-  }
-  addTask(task, description, category, assign, urgency, due, status = "TODO") {
-    this.currentId++;
-    const taskObj = {
-      id: this.currentId,
-      task,
-      description,
-      category,
-      assign,
-      urgency,
-      due,
-      status,
-    };
-    this.tasks.push(taskObj);
-  }
-  render() {}
+    constructor(currentId = 0) {
+        this.tasks = [];
+        this.currentId = currentId;
+    }
+    addTask(task, description, category, assign, urgency, due, status = 'TODO'){
+        this.currentId++;
+        const taskObj = {
+            id: this.currentId,
+            task,
+            description,
+            category,
+            assign,
+            urgency,
+            due,
+            status
+        }
+        this.tasks.push(taskObj);
+    }
+    render(){
+        let taskHtmlList = [];
+        let taskHtml = createTaskHtml(this.taskObj)
+        taskHtmlList.push(taskHtml)
+        taskList.innerHTML = taskHtml
+    }
 }
