@@ -3,10 +3,15 @@ body {
     min-height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
+    font-size: 16px;
 }
 
 
 
 h6 {
     font-weight: normal;
+}
+
+.card-title {
+    font-size: 2rem;
 }
