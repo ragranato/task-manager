@@ -35,6 +35,9 @@ class TaskManager {
         this.tasks.push(taskObj);
     }
     render(){
-        
+        let taskHtmlList = [];
+        let taskHtml = createTaskHtml(this.taskObj)
+        taskHtmlList.push(taskHtml)
+        taskList.innerHTML = taskHtml
     }
 }
