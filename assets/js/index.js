@@ -6,19 +6,46 @@ let urgent = document.getElementById("urgent");
 let routine = document.getElementById("routine");
 let due = document.getElementById("due");
 const submit = document.getElementById("submit");
-let urgency = urgent.checked ? urgent : routine;
 
 
 
-function handleSubmit(){
+
+function handleSubmit() {
     event.preventDefault()
-    taskmanager.addTask(task.value, description.value, category.value, assign.value, urgency.value, due.value)
-    taskmanager.render()
-    
+    let urgency;
+    if (urgent.checked){
+        urgency = urgent;
+    } else if (routine.checked){
+        urgency = routine
+    } else {
+        urgency = ''
+    };
+    let today = new Date().toISOString().split('T')[0]
+       
+    if (task.value === '') {
+        alert('Please enter a task')
+    } else if (description.value === '') {
+        alert('Please describe the task')
+    } else if (category.value === 'choose') {
+        alert('Please select a category')
+    } else if (assign.value === '') {
+        alert('Please assign the task')
+    } else if (description.value === '') {
+        alert('Please describe the task')
+    } else if (urgency === '') {
+        alert('Please select the urgency')
+    } else if (due.value === '' || due.value < today) {
+        alert('Please enter a valid due date')
+    } else {
+        taskManager.addTask(task.value, description.value, category.value, assign.value, urgency.value, due.value)
+        taskManager.render()
+    }
+
+
 }
 
-const taskmanager = new TaskManager();
+const taskManager = new TaskManager();
 
 submit.addEventListener("click", handleSubmit);
 
-function validateFormField() {}
+function validateFormField() { }

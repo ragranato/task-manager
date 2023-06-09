@@ -39,7 +39,7 @@ class TaskManager {
   render() {
     let taskHtmlList = [];    
     let taskHtml = createTaskHtml(this.tasks[this.currentId - 1]);
-    console.log(typeof taskHtml);
+    
     taskHtmlList.push(taskHtml);
     taskHtmlList.map(task => {
       let li = document.createElement('li');
