@@ -17,10 +17,13 @@ h6 {
 li {
   display: inline-flex;
   width: 18rem;
-  padding: 2rem;
+  padding-top: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   margin: 2rem;
   border-radius: 5px;
-  background-color: white;
+  background-color: whitesmoke;
+  box-shadow: 5px 10px #888888;
 }
 
 
