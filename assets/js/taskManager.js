@@ -46,5 +46,6 @@ class TaskManager {
       li.innerHTML = task;
       taskList.appendChild(li)
     });
+    document.getElementById('task-form').reset();
   }
 }
