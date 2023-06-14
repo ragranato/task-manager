@@ -4,7 +4,7 @@ const createTaskHtml = (object) => {
   const html = `                 
             <div class="card-body pb-5">
                 <div class="d-flex justify-content-end">
-                  <button type="button" class="btn btn-primary mb-2">${object.status}</button>
+                  <button type="button" class="btn btn-primary mb-2 done-button">${object.status}</button>
                 </div>                
                 <h5 class="card-title">${object.task}</h5>
                 <h6 class="card-subtitle mb-2 text-danger">${object.urgency}</h6>
