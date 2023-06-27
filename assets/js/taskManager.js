@@ -2,7 +2,7 @@ let taskList = document.getElementById("task-list");
 
 const createTaskHtml = (object) => {
   const html = `                 
-            <div class="card-body pb-5">
+            <div class="card-body pb-5" id=${object.id}>
                 <div class="d-flex justify-content-end">
                   <button type="button" class="btn btn-primary mb-2 done-button">${object.status}</button>
                 </div>                
@@ -12,6 +12,7 @@ const createTaskHtml = (object) => {
                 <p class="card-text">${object.description}
                 </p>
                 <h6 class="card-subtitle mb-2">${object.assign}</h6>
+                <h6 class="card-subtitle mb-2">${object.category}</h6>
             </div>                    
             `;
   return html
@@ -42,6 +43,7 @@ class TaskManager {
     
     let taskHtmlList = [];    
     let taskHtml = createTaskHtml(this.tasks[this.currentId - 1]);
+    console.log(taskHtml)
     
     taskHtmlList.push(taskHtml);
     taskHtmlList.map(task => {
@@ -50,5 +52,14 @@ class TaskManager {
       taskList.appendChild(li)
     });
     document.getElementById('task-form').reset();
+  }
+  getTaskById(taskId) {
+    let foundTask;
+    this.tasks.forEach((task) => {
+      if (task.id === taskId) {
+        foundTask = task;
+      }
+    })
+    return foundTask;
   }
 }
