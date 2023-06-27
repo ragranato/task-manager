@@ -56,6 +56,9 @@ taskList.addEventListener("click", (event) => {
   let task = taskManager.getTaskById(taskId)
   
   task.status = 'DONE'
+  taskManager.tasks[taskId - 1] = task;
+  
   done.style.backgroundColor = "red";
   taskManager.render()
+  console.log(taskManager.tasks);
 });
