@@ -6,8 +6,6 @@ let urgent = document.getElementById("urgent");
 let routine = document.getElementById("routine");
 let due = document.getElementById("due");
 const submit = document.getElementById("submit");
-let taskList = document.getElementById("task-list");
-
 
 
 function handleSubmit() {
@@ -48,4 +46,8 @@ const taskManager = new TaskManager();
 
 submit.addEventListener("click", handleSubmit);
 
-function validateFormField() { }
+taskList.addEventListener("click", (event) => {
+  let done = event.target
+  done.style.backgroundColor = 'red'
+  done.innerHTML = 'DONE'
+});

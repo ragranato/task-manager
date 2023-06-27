@@ -17,6 +17,8 @@ const createTaskHtml = (object) => {
   return html
 };
 
+
+
 class TaskManager {
   constructor(currentId = 0) {
     this.tasks = [];
@@ -37,6 +39,7 @@ class TaskManager {
     this.tasks.push(taskObj);
   }
   render() {
+    
     let taskHtmlList = [];    
     let taskHtml = createTaskHtml(this.tasks[this.currentId - 1]);
     
