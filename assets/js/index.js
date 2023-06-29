@@ -47,18 +47,19 @@ const taskManager = new TaskManager();
 submit.addEventListener("click", handleSubmit);
 
 taskList.addEventListener("click", (event) => {
-  let done = event.target 
+    event.preventDefault()
+    let done = event.target 
 
-  let parent = done.parentElement.parentElement;
-  
-  let taskId = Number(parent.id)
-  
-  let task = taskManager.getTaskById(taskId)
-  
-  task.status = 'DONE'
-  taskManager.tasks[taskId - 1] = task;
-  
-  done.style.backgroundColor = "red";
-  taskManager.render()
-  console.log(taskManager.tasks);
+    let parent = done.parentElement.parentElement;
+    
+    let taskId = Number(parent.id)
+    
+    let task = taskManager.getTaskById(taskId)
+    
+    task.status = 'DONE'
+    taskManager.tasks[taskId - 1] = task;
+    
+    done.style.backgroundColor = "red";
+    taskManager.render()
+    
 });

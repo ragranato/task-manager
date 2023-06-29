@@ -21,7 +21,7 @@ const createTaskHtml = (object) => {
 
 
 class TaskManager {
-  constructor(currentId = 0) {
+  constructor(currentId) {
     this.tasks = [];
     this.currentId = currentId;
   }
@@ -41,16 +41,22 @@ class TaskManager {
   }
   render() {
     
-    let taskHtmlList = [];    
-    let taskHtml = createTaskHtml(this.tasks[this.currentId - 1]);
-    console.log(taskHtml)
-    
-    taskHtmlList.push(taskHtml);
-    taskHtmlList.map(task => {
-      let li = document.createElement('li');
-      li.innerHTML = task;
-      taskList.appendChild(li)
-    });
+    let taskHtmlList = []; 
+    for (let i = 0; this.tasks.length; i++) {
+      let taskHtml = createTaskHtml(this.tasks[i]);
+      taskHtmlList.push(taskHtml);
+    }
+
+    console.log(taskHtmlList)
+    const tasksHtml = taskHtmlList.join('\n')
+
+    taskList.innerHTML = tasksHtml
+
+    // taskHtmlList.map(task => {
+    //   let li = document.createElement('li');
+    //   li.innerHTML = task;
+    //   taskList.appendChild(li)
+    // });
     document.getElementById('task-form').reset();
   }
   getTaskById(taskId) {
