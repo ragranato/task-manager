@@ -21,10 +21,11 @@ const createTaskHtml = (object) => {
 
 
 class TaskManager {
-  constructor(currentId) {
+  constructor() {
     this.tasks = [];
-    this.currentId = currentId;
+    this.currentId = 0;
   }
+
   addTask(task, description, category, assign, urgency, due, status = "TODO") {
     this.currentId++;
     const taskObj = {
@@ -37,28 +38,21 @@ class TaskManager {
       due,
       status,
     };
-    this.tasks.push(taskObj);
+    this.tasks.push(taskObj);   
   }
+
   render() {
-    
+    console.log(this.tasks);
     let taskHtmlList = []; 
-    for (let i = 0; this.tasks.length; i++) {
-      let taskHtml = createTaskHtml(this.tasks[i]);
+    for (let i = 0; i < this.tasks.length; i++) {      
+      let taskHtml = createTaskHtml(this.tasks[i]);     
       taskHtmlList.push(taskHtml);
-    }
-
-    console.log(taskHtmlList)
+    }    
     const tasksHtml = taskHtmlList.join('\n')
-
-    taskList.innerHTML = tasksHtml
-
-    // taskHtmlList.map(task => {
-    //   let li = document.createElement('li');
-    //   li.innerHTML = task;
-    //   taskList.appendChild(li)
-    // });
+    taskList.innerHTML = tasksHtml    
     document.getElementById('task-form').reset();
   }
+
   getTaskById(taskId) {
     let foundTask;
     this.tasks.forEach((task) => {

@@ -14,9 +14,11 @@ h6 {
   font-weight: normal;
 }
 
-li {
-  display: inline-flex;
-  width: 18rem;
+.card-body {
+ 
+  flex-wrap: wrap;
+  max-width: 18rem;
+  min-width: 18rem;
   padding-top: 2rem;
   padding-left: 2rem;
   padding-right: 2rem;
@@ -29,4 +31,17 @@ li {
 
 .card-title {
   font-size: 2rem;
+}
+
+#task-list {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  left: 100px;
+}
+
+#task-cards {
+  display: flex;
+  flex-wrap: wrap;
+  
 }
