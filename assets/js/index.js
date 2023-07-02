@@ -8,9 +8,7 @@ let due = document.getElementById("due");
 const submit = document.getElementById("submit");
 
 
-
-
-function handleSubmit() {
+function handleSubmit(event) {
     event.preventDefault()
     let urgency;
     if (urgent.checked){
@@ -38,6 +36,7 @@ function handleSubmit() {
         alert('Please enter a valid due date')
     } else {
         taskManager.addTask(task.value, description.value, category.value, assign.value, urgency.value, due.value)
+        
         taskManager.render()
     }
 
@@ -48,4 +47,19 @@ const taskManager = new TaskManager();
 
 submit.addEventListener("click", handleSubmit);
 
-function validateFormField() { }
+taskList.addEventListener("click", (event) => {
+    event.preventDefault()
+    let done = event.target 
+
+    let parent = done.parentElement.parentElement;
+    
+    let taskId = Number(parent.id)
+    
+    let task = taskManager.getTaskById(taskId)
+    
+    task.status = 'DONE'    
+    taskManager.tasks[taskId - 1] = task;     
+    
+    taskManager.render()
+    
+});
