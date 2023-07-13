@@ -45,3 +45,16 @@ h6 {
   flex-wrap: wrap;
   
 }
+
+.card-btns {
+  display: flex;
+  justify-content: space-around;
+}
+
+.delete-button {
+  background-color: maroon;
+}
+
+.hidden {
+  display: none;
+}
