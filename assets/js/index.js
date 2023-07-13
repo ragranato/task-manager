@@ -38,6 +38,8 @@ function handleSubmit(event) {
         taskManager.addTask(task.value, description.value, category.value, assign.value, urgency.value, due.value)
         
         taskManager.render()
+
+        taskManager.save()
     }
 
 
@@ -45,21 +47,41 @@ function handleSubmit(event) {
 
 const taskManager = new TaskManager();
 
+taskManager.load()
+taskManager.render()
+
 submit.addEventListener("click", handleSubmit);
 
 taskList.addEventListener("click", (event) => {
     event.preventDefault()
-    let done = event.target 
+    if (event.target.classList.contains('done-button')) {
+        let done = event.target 
 
-    let parent = done.parentElement.parentElement;
-    
-    let taskId = Number(parent.id)
-    
-    let task = taskManager.getTaskById(taskId)
-    
-    task.status = 'DONE'    
-    taskManager.tasks[taskId - 1] = task;     
-    
-    taskManager.render()
+        let parent = done.parentElement.parentElement;
+        
+        let taskId = Number(parent.id)
+        
+        let task = taskManager.getTaskById(taskId)
+        
+        task.status = 'DONE'   
+        done.className = 'hidden' 
+        taskManager.tasks[taskId - 1] = task;     
+        
+        taskManager.render()
+    }   
+    if (event.target.classList.contains('delete-button')) {
+        let delTask = event.target 
+
+        let parent = delTask.parentElement.parentElement;
+        
+        let taskId = Number(parent.id)
+        
+        taskManager.deleteTask(taskId)
+
+        taskManager.save()
+
+        taskManager.render()
+    }
     
 });
+
